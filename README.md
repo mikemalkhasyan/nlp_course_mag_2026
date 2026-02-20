@@ -1,108 +1,78 @@
-# nlp-course-mag-2026
+# NLP Course
 
-## Submission Guidelines
-1. Clone this repository
-2. Create a folder with your full name (e.g., "john-doe")
-3. Create subfolders for each assignment
-4. Push your completed work before the deadline (for each assignment deadline is up to next lecture)
-5. Never modify other students' folders
+Homework and project assignments for the **Natural Language Processing** course at the **National Polytechnic University of Armenia (NPUA)**, Master's program, second semester.
 
-# How to Submit Your Homework
+Each directory contains a standalone project with its own dependencies, instructions, and documentation.
 
-Follow these steps to submit your homework assignment via pull request.
+---
 
-## Prerequisites
+## Projects
 
-- Install [Git](https://git-scm.com/downloads) on your computer
-- Create a [GitHub account](https://github.com/join) if you don't have one
-- Install a code editor (e.g., VS Code, Sublime Text)
+| # | Project                                   | Description                                                              |
+|---|-------------------------------------------|--------------------------------------------------------------------------|
+| 1 | [LDA Topic Modeling](lda_topic_modeling/) | Unsupervised topic discovery using Latent Dirichlet Allocation (Gensim)  |
+| 2 | [SentencePiece BPE](sentencepiece_bpe/)   | BPE tokenizer trained on an Armenian corpus using SentencePiece          |
 
-## Step 1: Fork the Repository
+---
 
-1. Go to the course repository on GitHub
-2. Click the **Fork** button in the top-right corner
-3. This creates a copy of the repository under your GitHub account
+## Project Summaries
 
-## Step 2: Clone Your Fork
+### 1. LDA Topic Modeling — [`lda_topic_modeling/`](lda_topic_modeling/)
 
-Open your terminal/command prompt and run:
+An end-to-end pipeline for training, labeling, and running inference with an LDA topic model.
 
-```bash
-git clone https://github.com/YOUR-USERNAME/REPOSITORY-NAME.git
-cd REPOSITORY-NAME
+- Trains an LDA model (7 topics, 30 passes) on a text corpus
+- Provides an interactive interface for assigning human-readable labels to discovered topics
+- Classifies new documents and returns per-topic probability scores
+- Generates visualizations: word clouds, heatmaps, bar charts, and document-topic distributions
+
+**Stack:** Python, Gensim, NLTK, Matplotlib, WordCloud
+
+---
+
+### 2. SentencePiece BPE Tokenizer — [`sentencepiece_bpe/`](sentencepiece_bpe/)
+
+Trains a BPE tokenizer on a small Armenian corpus and analyses the resulting vocabulary.
+
+- Trains a 300-token BPE model with full Armenian Unicode character coverage
+- Encodes and decodes three test sentences with round-trip verification
+- Analyses vocabulary structure: single characters, subword fragments, and full words
+- Generates four plots: vocab composition donut, token frequency chart, length histogram, and sentence tokenization diagram
+
+**Stack:** Python, SentencePiece, Matplotlib, NumPy
+
+---
+
+## Repository Structure
+
+```text
+nlp-course-npua/
+├── lda_topic_modeling/     # Homework 1 — LDA Topic Modeling
+│   ├── 1_training.py
+│   ├── 2_labeling.py
+│   ├── 3_inference.py
+│   ├── visualizations.py
+│   ├── models/
+│   └── visualizations/
+└── sentencepiece_bpe/      # Homework 2 — SentencePiece BPE Tokenizer
+    ├── 1_training.py
+    ├── 2_encoding_decoding.py
+    ├── 3_vocabulary_analysis.py
+    ├── visualizations.py
+    ├── corpus.txt
+    ├── models/
+    └── visualizations/
 ```
 
-Replace `YOUR-USERNAME` with your GitHub username and `REPOSITORY-NAME` with the actual repository name.
+---
 
-## Step 3: Create a New Branch
+## Requirements
 
-Create a branch for your homework. Use a descriptive name:
+Each project manages its own virtual environment and dependencies. Refer to the `README.md` inside each project directory for setup instructions.
 
-```bash
-git checkout -b homework-1-yourname
-```
+General prerequisites:
 
-Example: `git checkout -b homework-1-john-smith`
+- Python 3.8+
+- `pip`
 
-## Step 4: Complete Your Homework
-
-1. Navigate to the appropriate homework folder
-2. Complete your assignment
-3. Save all your files
-
-## Step 5: Commit Your Changes
-
-Add your files to Git and commit them:
-
-```bash
-git add .
-git commit -m "Complete Homework 1: [Brief description]"
-```
-
-Example: `git commit -m "Complete Homework 1: Implemented sorting algorithm"`
-
-## Step 6: Push to GitHub
-
-Push your branch to your fork on GitHub:
-
-```bash
-git push origin homework-1-yourname
-```
-
-## Step 7: Create a Pull Request
-
-1. Go to your fork on GitHub
-2. You'll see a yellow banner with "Compare & pull request" - click it
-3. **Alternatively**: Go to the "Pull requests" tab and click "New pull request"
-4. Make sure the base repository is the course repo and the head repository is your fork
-5. Fill in the pull request template:
-   - **Title**: `Homework 1 - Your Full Name`
-   - **Description**: Mention what you implemented and any notes for the instructor
-6. Click **Create pull request**
-
-## Important Notes
-
-- ⚠️ **Do not merge your own pull request** - your instructor will review and merge it
-- Create a **separate branch** for each homework assignment
-- Make sure your code runs without errors before submitting
-- Include any necessary documentation or comments in your code
-- Submit by the deadline specified in the assignment
-
-## Need Help?
-
-If you run into issues:
-- Check the [GitHub documentation](https://docs.github.com)
-- Ask questions in the course discussion forum
-- Reach out during office hours
-
-## Common Issues
-
-**Problem: "Permission denied"**  
-Solution: Make sure you forked the repository and are pushing to your own fork, not the main course repository.
-
-**Problem: "Branch already exists"**  
-Solution: Use a different branch name or delete the old branch: `git branch -d branch-name`
-
-**Problem: "Merge conflicts"**  
-Solution: Make sure you're working on a clean branch. Pull the latest changes from the main repository before starting.
-
+---
