@@ -17,6 +17,7 @@ Train and analyze a Byte-Pair Encoding (BPE) tokenizer with [SentencePiece](http
 ```bash
 pip install sentencepiece matplotlib numpy
 
+python 0_corpus_analysis.py
 python 1_training.py           # trains models/hy_bpe.model
 python 2_encoding_decoding.py
 python 3_vocabulary_analysis.py
@@ -25,12 +26,8 @@ python visualizations.py       # saves plots to visualizations/
 
 ## Visualizations
 
-| Plot | Description |
-| --- | --- |
-| `vocab_composition.png` | Donut chart — single chars / subword fragments / full words |
-| `token_frequencies.png` | Horizontal bar chart — top-20 most frequent corpus tokens, coloured by category |
-| `token_length_distribution.png` | Histogram — vocabulary entry length distribution with category regions |
-| `sentence_tokenization.png` | Colour-coded token-block diagram for the 3 Armenian test sentences |
+![Sentence tokenizer](visualizations/sentence_tokenization.png)
+![Top tokens](visualizations/token_frequencies.png)
 
 ## Project Structure
 
